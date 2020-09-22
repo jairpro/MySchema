@@ -1,0 +1,27 @@
+{
+  "name": "jairpro/myschema",
+  "type": "library",
+  "description": "Validador de dados ao estilo Yup",
+  "keywords": ["schema","yup","validate","cast","isvalid"],
+  "homepage": "https://github.com/jairpro/MySchema",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jair Dias",
+      "email": "jairedias@gmail.com",
+      "homepage": "https://jairpro.sistemanuvem.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "MySchema": "src"
+    },
+    "psr-4": {
+      "Src\\": "php_modules/myschema"
+    }
+  }
+}
