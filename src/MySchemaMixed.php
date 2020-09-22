@@ -1,10 +1,19 @@
 <?php
   
-  class MySchemaField {
+  class MySchemaMixed {
 
     protected $required = false;
     protected $rule;
     protected $default;
+
+    function getProps() {
+      $props = [
+        'required' => $this->required,
+        'rule' => $this->rule,
+        'default' => $this->default
+      ];
+      return $props;
+    }
 
     protected function setRule($rule) {
       $this->rule = $rule;
@@ -21,7 +30,7 @@
     }
 
     function isValid($value) {
-      if ($this->required && $value===null) {
+      if ($this->required && !isset($value)) {
         return false;
       }
       return true;

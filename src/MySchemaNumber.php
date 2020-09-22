@@ -1,11 +1,19 @@
 <?php
 
-class MySchemaNumber extends MySchemaField {
+class MySchemaNumber extends MySchemaMixed {
 
   protected $positive = null;
   protected $integer = false;
 
-  function positive($positive=true) {
+  function getProps() {
+    $props = array_merge(parent::getProps(), [
+      'positive' => $this->required,
+      'integer' => $this->rule,
+    ]);
+    return $props;
+  }
+
+function positive($positive=true) {
     $this->positive = $positive==true;
     return $this;
   }

@@ -1,6 +1,7 @@
+<h1>MySchema Test 1</h1>
 <?php
 
-require_once dirname(__FILE__)."/../autoload.php";
+require_once dirname(__FILE__)."/../../autoload.php";
 
 /*
 $contactSchema1 = MySchema([
@@ -124,3 +125,5 @@ echo "<br>cast3: ".json_encode($cast3);
 echo "<br>valid3: ".json_encode($valid3);
 echo "<br>validate3: ".json_encode($validate3);
 echo "<br>invalidate3: ".json_encode($invalidate3);
+
+

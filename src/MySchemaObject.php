@@ -4,6 +4,19 @@ class MySchemaObject {
 
   protected $schema;
 
+  function getProps() {
+    $props = [];
+    if (is_array($this->schema)) {
+      foreach ($this->schema as $index => $element) {
+        $props[$index] = [];
+        if (is_object($element) && method_exists($element, "getProps")) {
+          $props[$index] = $element->getProps();
+        }
+      }
+    }
+    return $props;
+  }
+
   function __construct($schema=null) {
     $this->schema = $schema;
   }

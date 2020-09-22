@@ -1,5 +1,5 @@
 <?php
 
-class MySchemaDate extends MySchemaField {
+class MySchemaDate extends MySchemaMixed {
   
 }

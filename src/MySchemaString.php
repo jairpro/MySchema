@@ -1,6 +1,6 @@
 <?php
 
-class MySchemaString extends MySchemaField {
+class MySchemaString extends MySchemaMixed {
 
   function email() {
     return $this->setRule("email");
@@ -14,15 +14,18 @@ class MySchemaString extends MySchemaField {
     if (!parent::isValid($value)) {
       return false;
     }
-    switch ($this->rule) {
-      case 'email': 
-        return filter_var($value, FILTER_VALIDATE_EMAIL) !== false;
-
-      case 'url': 
-        return filter_var($value, FILTER_VALIDATE_URL) !== false;
-
-      default: 
-        return true; 
+    if ($this->required && $value==='') {
+      return false;
     }
+    if (!$this->required && $value!=='') {
+      switch ($this->rule) {
+        case 'email': 
+          return filter_var($value, FILTER_VALIDATE_EMAIL) !== false;
+
+        case 'url': 
+          return filter_var($value, FILTER_VALIDATE_URL) !== false;
+      }
+    }
+    return true;
   }
 }
