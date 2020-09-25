@@ -1,4 +1,78 @@
-<h1>MySchema Test 1</h1>
+<style>
+  * {
+    display: flex;
+    flex-direction: column;
+    align-items: top;
+    justify-content: left;
+  }
+  style, script {
+    display: none;
+  }
+  body {
+    font-family: 'Fira Code','Courier New', Courier, monospace;
+    background: #333;
+    color: #fff;
+  }
+  .header {
+    align-items: center;
+  }
+  ul {
+    style: none;
+  }
+  ul a {
+    color: #aaa;
+  }
+  ul a:hover {
+    color: #fff;
+  }
+  .card {
+    margin: 10px 10px;
+    border: 3px solid #0ff;
+    border-radius: 10px;
+  }
+  .label {
+    padding-right: 10px;
+  }
+  .value {
+    overflow: hidden;
+    height: auto;
+    width: auto;
+    overflow-y: auto;
+    overflow-x: auto;
+  }
+  .schema {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 3px solid #0ff;
+    padding: 15px 20px;
+    background: #333;
+  }
+  .tests {
+    padding: 15px 20px;
+    background: #444;
+  }
+  .test {
+    display: flex;
+    flex-direction: row;
+  }
+  .test .label {
+    width: 200px;
+  }
+  .label {
+    color: cyan;
+  }
+  .value {
+    color: yellowgreen;
+  }
+</style>
+
+<div class="header">
+  <h1>MySchema Test 1</h1>
+  <ul>
+    <a href="../"><li>Home</li></a>
+  </ul>
+</div>
+
 <?php
 
 require_once dirname(__FILE__)."/../../autoload.php";
@@ -121,9 +195,19 @@ $options = ['abortEarly' => false];
 $invalidate3 = $contactSchema3->validate($contactError, $options);
 //$invalidate4 = $contactSchema4->validate($contactError, $options);
 
-echo "<br>cast3: ".json_encode($cast3);
-echo "<br>valid3: ".json_encode($valid3);
-echo "<br>validate3: ".json_encode($validate3);
-echo "<br>invalidate3: ".json_encode($invalidate3);
+echo "<div class=\"card\">";
+echo   "<div class=\"schema\"><span class=\"label\">contactSchema3:</span> <span class=\"value\">".json_encode($contactSchema3->getProps())."</span></div>";
+echo   "<div class=\"tests\">";
+echo     "<br>";
+echo     "<div>cast: ".json_encode($cast)."</div>";
+echo     "<div class=\"test\"><span class=\"label\">cast3:</span><span class=\"value\">".json_encode($cast3)."</span></div>";
+echo     "<br>";
+echo     "<div>contact: ".json_encode($contact)."</div>";
+echo     "<div class=\"test\"><span class=\"label\">valid3:</span><span class=\"value\">".json_encode($valid3)."</span></div>";
+echo     "<div class=\"test\"><span class=\"label\">validate3:</span><span class=\"value\">".json_encode($validate3)."</span></div>";
+echo     "<br>";
+echo     "<div>contactError: ".json_encode($contactError)."</div>";
+echo     "<div class=\"test\"><span class=\"label\">invalidate3:</span><span class=\"value\">".json_encode($invalidate3)."</span></div>";
 
-
+echo   "</div>";
+echo "</div>";

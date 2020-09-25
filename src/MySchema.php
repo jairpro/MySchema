@@ -6,6 +6,10 @@ class MySchema {
     return $this;
   }
 
+  static function mixed($schema=null) {
+    return new MySchemaMixed($schema);
+  }
+
   static function object($schema) {
     return new MySchemaObject($schema);
   }
@@ -25,6 +29,10 @@ class MySchema {
 
 function MySchema($schema=null) {
   return new MySchemaObject($schema); 
+}
+
+function MySchemaMixed($schema=null) {
+  return new MySchemaMixed($schema); 
 }
 
 function MySchemaObject($schema) {
